@@ -2,7 +2,7 @@
 
 def create_sr(name, src):
     build_file = text_file(
-        name=tag(name, "buildfile"),
+        name="subr_buildfile",
         strip=True,
         content=f"""
             genrule(
@@ -16,7 +16,7 @@ def create_sr(name, src):
         """,
     )
     repo = build_rule(
-        name=tag(name, "srcs"),
+        name='subr_srcs',
         srcs={
             "s": [src],
             "build": [build_file],
